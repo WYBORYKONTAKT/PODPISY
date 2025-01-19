@@ -1,85 +1,112 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>gFormularz Kontaktowy</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Kontaktowy</title>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .contact-form {
-      max-width: 600px;
-      margin: 50px auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    .contact-form h2 {
-      text-align: center;
-      color: #333;
-    }
+        .contact-form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
 
-    .form-group {
-      margin-bottom: 15px;
-    }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
 
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 16px;
-    }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
 
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      font-size: 18px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #response-message {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: green;
+        }
+    </style>
 </head>
 <body>
-  <div class="contact-form">
-    <h2>Formularz Kontaktowy</h2>
-    <form action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST">
-      <div class="form-group">
-        <label for="name">Imię:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Wiadomość:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <button type="submit">Wyślij</button>
-    </form>
-  </div>
+    <div class="contact-form-container">
+        <h2>Skontaktuj się z nami</h2>
+        <form id="contact-form">
+            <label for="name">Imię:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Wiadomość:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">Wyślij</button>
+        </form>
+        <p id="response-message"></p>
+    </div>
+
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("user_YOUR_USER_ID"); // Podmień na swój User ID
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            emailjs.sendForm('service_YOUR_SERVICE_ID', 'template_YOUR_TEMPLATE_ID', formData) // Podmień na Service ID i Template ID
+                .then(function(response) {
+                    document.getElementById('response-message').innerText = "Wiadomość została wysłana!";
+                    form.reset();
+                }, function(error) {
+                    document.getElementById('response-message').innerText = "Wystąpił błąd. Spróbuj ponownie.";
+                });
+        });
+    </script>
 </body>
 </html>
