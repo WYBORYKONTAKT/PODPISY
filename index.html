@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,29 +49,37 @@
 </head>
 <body>
     <div class="container">
-        <h2>Contact Us</h2>
+        <h2>12Contact Us</h2>
+        
+        <!-- Formularz kontaktowy -->
         <form action="https://formsubmit.co/el/xahoki" method="POST">
             <!-- Ukryte pola (anty-spam i ustawienia) -->
-            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_captcha" value="true"> <!-- Włączono CAPTCHA -->
             <input type="hidden" name="_template" value="plain">
             <input type="hidden" name="_next" value="https://wyborykontakt.github.io/pracawkomisji/thank-you.html">
 
             <!-- Pole: Imię -->
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" value="adam" required>
             </div>
 
             <!-- Pole: Email -->
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" value="customer@company.com" required>
+            </div>
+
+            <!-- Pole: Numer telefonu -->
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" value="numer tel." required>
             </div>
 
             <!-- Pole: Wiadomość -->
             <div class="form-group">
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
+                <textarea id="message" name="message" rows="4" required>przykład: misatropoznan</textarea>
             </div>
 
             <!-- Przycisk: Wyślij -->
@@ -79,6 +87,10 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
+
+        <!-- Link do formularza z parametrami GET -->
+        <p>If you want to send an email with pre-filled information, click the link below:</p>
+        <a href="https://formsubmit.co/el/xahoki/?name=adam&email=customer@company.com&subject=support+request&message=przykład%3A+misatropoznan" target="_blank">Email us</a>
     </div>
 </body>
 </html>
