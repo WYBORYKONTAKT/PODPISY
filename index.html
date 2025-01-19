@@ -87,7 +87,8 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script>
         (function(){
-            emailjs.init("TWÓJ_USER_ID"); // Zamień TWÓJ_USER_ID na swój ID z EmailJS
+            // Inicjalizacja EmailJS
+            emailjs.init("GMAILCOM");
         })();
 
         document.getElementById('contactForm').addEventListener('submit', function(event) {
@@ -110,7 +111,7 @@
             }
 
             // Wysyłanie e-maila za pomocą EmailJS
-            emailjs.send("TWÓJ_SERVICE_ID", "TWÓJ_TEMPLATE_ID", {
+            emailjs.send("service_id", "template_2258khagmailcom", {
                 to_email: recipient, // Użycie dekodowanego adresu
                 from_email: email,
                 phone: phone,
