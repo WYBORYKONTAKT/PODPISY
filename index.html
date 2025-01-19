@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz kontaktowy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formularz kontaktowy</h1>
+        <form id="contactForm">
+            <label for="email">Adres e-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Numer telefonu:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{9}">
+            
+            <label for="name">Imię i nazwisko:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="city">Miasto:</label>
+            <input type="text" id="city" name="city" required>
+            
+            <label for="district">Gmina oczekiwanej komisji:</label>
+            <input type="text" id="district" name="district" required>
+            
+            <button type="submit">Wyślij</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("TWÓJ_USER_ID"); // Zamień TWÓJ_USER_ID na swój ID z EmailJS
+        })();
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const name = document.getElementById('name').value;
+            const city = document.getElementById('city').value;
+            const district = document.getElementById('district').value;
+
+            // Zakodowany adres e-mail odbiorcy
+            const encodedRecipient = "d3lib3J5LmtvbnRha3RAZ21haWwuY29t";
+            const recipient = atob(encodedRecipient); // Dekodowanie Base64
+
+            // Walidacja numeru telefonu
+            if (!/^[0-9]{9}$/.test(phone)) {
+                alert("Numer telefonu musi składać się z 9 cyfr.");
+                return;
+            }
+
+            // Wysyłanie e-maila za pomocą EmailJS
+            emailjs.send("TWÓJ_SERVICE_ID", "TWÓJ_TEMPLATE_ID", {
+                to_email: recipient, // Użycie dekodowanego adresu
+                from_email: email,
+                phone: phone,
+                name: name,
+                city: city,
+                district: district
+            }).then(function(response) {
+                document.getElementById('responseMessage').textContent = "Wiadomość została wysłana!";
+                document.getElementById('responseMessage').style.color = "green";
+            }, function(error) {
+                document.getElementById('responseMessage').textContent = "Wystąpił błąd podczas wysyłania wiadomości.";
+                document.getElementById('responseMessage').style.color = "red";
+            });
+        });
+    </script>
+</body>
+</html>
