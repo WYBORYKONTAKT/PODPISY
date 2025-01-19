@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularz Kontaktowy</title>
+    <title>nFormularz Kontaktowy</title>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
         * {
@@ -90,7 +90,7 @@
 
     <script type="text/javascript">
         (function() {
-            emailjs.init("user_YOUR_USER_ID"); // Podmień na swój User ID
+            emailjs.init("user_wua51hdgmailcom"); // Twój User ID
         })();
 
         document.getElementById('contact-form').addEventListener('submit', function(event) {
@@ -99,7 +99,8 @@
             const form = event.target;
             const formData = new FormData(form);
 
-            emailjs.sendForm('service_YOUR_SERVICE_ID', 'template_YOUR_TEMPLATE_ID', formData) // Podmień na Service ID i Template ID
+            // Wyślij formularz za pomocą EmailJS
+            emailjs.sendForm('service_wua51hdgmailcom', 'template_2258khagmailcom', formData)
                 .then(function(response) {
                     document.getElementById('response-message').innerText = "Wiadomość została wysłana!";
                     form.reset();
