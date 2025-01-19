@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Formularz kontaktowy</title>
+    <title>Formularz kontaktowy</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -87,8 +87,8 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script>
         (function(){
-            // Inicjalizacja EmailJS
-            emailjs.init("GMAILCOM");
+            // Inicjalizacja EmailJS z Twoim Public Key
+            emailjs.init("E2Joiodo6PnGSwg4P"); // Zmieniono na Twój Public Key
         })();
 
         document.getElementById('contactForm').addEventListener('submit', function(event) {
@@ -100,10 +100,6 @@
             const city = document.getElementById('city').value;
             const district = document.getElementById('district').value;
 
-            // Zakodowany adres e-mail odbiorcy
-            const encodedRecipient = "d3lib3J5LmtvbnRha3RAZ21haWwuY29t";
-            const recipient = atob(encodedRecipient); // Dekodowanie Base64
-
             // Walidacja numeru telefonu
             if (!/^[0-9]{9}$/.test(phone)) {
                 alert("Numer telefonu musi składać się z 9 cyfr.");
@@ -111,8 +107,7 @@
             }
 
             // Wysyłanie e-maila za pomocą EmailJS
-            emailjs.send("service_id", "template_2258khagmailcom", {
-                to_email: recipient, // Użycie dekodowanego adresu
+            emailjs.send("service_wua51hdgmailcom", "template_2258khagmailcom", {
                 from_email: email,
                 phone: phone,
                 name: name,
