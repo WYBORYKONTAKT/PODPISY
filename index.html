@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vFormularz Kontaktowy</title>
+    <title>Formularz Kontaktowy</title>
     <style>
         /* Podstawowy reset stylów */
         * {
@@ -19,6 +19,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
 
         .form-container {
@@ -83,13 +84,13 @@
         <h2>Formularz Kontaktowy</h2>
         <form id="myForm">
             <label for="name">Imię i Nazwisko:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" placeholder="Wpisz swoje imię" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="Wpisz swój email" required>
 
             <label for="message">Wiadomość:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" rows="4" placeholder="Wpisz swoją wiadomość" required></textarea>
 
             <button type="submit">Wyślij</button>
         </form>
@@ -98,26 +99,27 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
-        emailjs.init('E2Joiodo6PnGSwg4P'); // Twój publiczny klucz
-        
-        $('#myForm').on('submit', function(event) {
-            event.preventDefault(); // prevent reload
-            
-            var formData = new FormData(this);
-            formData.append('service_id', 'service_wua51hdgmailcom');
-            formData.append('template_id', 'template_2258khagmailcom');
-            formData.append('user_id', 'E2Joiodo6PnGSwg4P'); // Twój publiczny klucz
+        // Inicjalizacja EmailJS z Twoim publicznym kluczem
+        emailjs.init('E2Joiodo6PnGSwg4P');
 
-            $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false
-            }).done(function() {
-                alert('Twoja wiadomość została wysłana!');
-            }).fail(function(error) {
-                alert('Ups... ' + JSON.stringify(error));
-            });
+        // Obsługa wysyłania formularza
+        $('#myForm').on('submit', function(event) {
+            event.preventDefault(); // Zatrzymuje domyślne przeładowanie strony
+
+            // Pobieranie danych z formularza
+            var templateParams = {
+                name: $('#name').val(), // Wartość pola Imię i nazwisko
+                email: $('#email').val(), // Wartość pola Email
+                message: $('#message').val() // Wartość pola Wiadomość
+            };
+
+            // Wysyłanie wiadomości przez EmailJS
+            emailjs.send('service_wua51hdgmailcom', 'template_2258khagmailcom', templateParams)
+                .then(function(response) {
+                    alert('Twoja wiadomość została wysłana!'); // Powiadomienie o sukcesie
+                }, function(error) {
+                    alert('Ups... Wystąpił błąd: ' + JSON.stringify(error)); // Powiadomienie o błędzie
+                });
         });
     </script>
 </body>
