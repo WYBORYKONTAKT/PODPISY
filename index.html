@@ -49,48 +49,31 @@
 </head>
 <body>
     <div class="container">
-        <h2>12Contact Us</h2>
-        
-        <!-- Formularz kontaktowy -->
+        <h2>Contact Us</h2>
         <form action="https://formsubmit.co/el/xahoki" method="POST">
-            <!-- Ukryte pola (anty-spam i ustawienia) -->
-            <input type="hidden" name="_captcha" value="true"> <!-- Włączono CAPTCHA -->
+            <input type="hidden" name="_captcha" value="true">
             <input type="hidden" name="_template" value="plain">
-            <input type="hidden" name="_next" value="https://wyborykontakt.github.io/pracawkomisji/thank-you.html">
-
-            <!-- Pole: Imię -->
+            <input type="hidden" name="_next" value="thank-you.html">
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="adam" required>
+                <label for="name">Imię i nazwisko:</label>
+                <input type="text" id="name" name="name" value="" required>
             </div>
-
-            <!-- Pole: Email -->
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="customer@company.com" required>
+                <label for="email">Adres email:</label>
+                <input type="email" id="email" name="email" value="" required>
             </div>
-
-            <!-- Pole: Numer telefonu -->
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" value="numer tel." required>
+                <label for="phone">Numer telefonu:</label>
+                <input type="text" id="phone" name="phone" value="" required>
             </div>
-
-            <!-- Pole: Wiadomość -->
             <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required>przykład: misatropoznan</textarea>
+                <label for="message">Wiadomośc dodatkowa:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
             </div>
-
-            <!-- Przycisk: Wyślij -->
             <div class="form-group">
                 <input type="submit" value="Submit">
             </div>
         </form>
-
-        <!-- Link do formularza z parametrami GET -->
-        <p>If you want to send an email with pre-filled information, click the link below:</p>
-        <a href="https://formsubmit.co/el/xahoki/?name=adam&email=customer@company.com&subject=support+request&message=przykład%3A+misatropoznan" target="_blank">Email us</a>
     </div>
 </body>
 </html>
