@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>12Contact Form</title>
+    <title>Contact Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,12 +50,11 @@
 <body>
     <div class="container">
         <h2>Contact Us</h2>
-        
-        <!-- Formularz kontaktowy -->
         <form action="https://formsubmit.co/el/xahoki" method="POST">
             <!-- Ukryte pola (anty-spam i ustawienia) -->
-            <input type="hidden" name="_captcha" value="true"> <!-- Włączono CAPTCHA -->
+            <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="plain">
+            <input type="hidden" name="_next" value="https://wyborykontakt.github.io/pracawkomisji/thank-you.html">
 
             <!-- Pole: Imię -->
             <div class="form-group">
@@ -69,12 +68,6 @@
                 <input type="email" id="email" name="email" required>
             </div>
 
-            <!-- Pole: Numer telefonu -->
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" required>
-            </div>
-
             <!-- Pole: Wiadomość -->
             <div class="form-group">
                 <label for="message">Message:</label>
@@ -86,8 +79,6 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
-
-
     </div>
 </body>
 </html>
