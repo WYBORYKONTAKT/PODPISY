@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formularz zgłoszenia kandydata do Okręgowej Komisji Wyborczej">
     <title>Praca w komisji</title>
     <style>
         * {
@@ -134,20 +135,20 @@
             <input type="hidden" name="_next" value="https://wyborykontakt.github.io/pracawkomisji/wyslane.html">
             <div class="form-group">
                 <label for="name">Imię i nazwisko:</label>
-                <input type="text" id="name" name="imie_i_nazwisko" required>
+                <input type="text" id="name" name="imie_i_nazwisko" aria-label="Imię i nazwisko" required>
             </div>
             <div class="form-group">
                 <label for="email">Adres email:</label>
-                <input type="email" id="email" name="adres_email" required>
+                <input type="email" id="email" name="adres_email" aria-label="Adres email" required>
             </div>
             <div class="form-group">
                 <label for="phone">Numer telefonu:</label>
-                <input type="tel" id="phone" name="numer_telefonu" pattern="[0-9]{9}" placeholder="CYFRY" required>
+                <input type="tel" id="phone" name="numer_telefonu" pattern="[0-9]{9}" placeholder="CYFRY" aria-label="Numer telefonu" required>
                 <small>Numer telefonu musi zawierać 9 cyfr</small>
             </div>
             <div class="form-group">
                 <label for="region">Województwo:</label>
-                <select id="region" name="wojewodztwo" required>
+                <select id="region" name="wojewodztwo" aria-label="Wybierz województwo" required>
                     <option value="">-- Wybierz województwo --</option>
                     <option value="dolnoslaskie">Dolnośląskie</option>
                     <option value="kujawsko-pomorskie">Kujawsko-Pomorskie</option>
@@ -169,11 +170,11 @@
             </div>
             <div class="form-group">
                 <label for="city">Oczekiwane miasto lub gmina przydzielonej okręgowej komisji wyborczej:</label>
-                <input type="text" id="city" name="miasto_lub_gmina" required>
+                <input type="text" id="city" name="miasto_lub_gmina" aria-label="Miasto lub gmina" required>
             </div>
             <div class="form-group">
-                <label for="message">wiadomość:</label>
-                <textarea id="message" name="wiadomosc" rows="5" required></textarea>
+                <label for="message">Wiadomość:</label>
+                <textarea id="message" name="wiadomosc" rows="5" aria-label="Wiadomość" required></textarea>
             </div>
             <div class="form-group">
                 <input type="submit" value="Akceptuję regulamin i wysyłam formularz">
