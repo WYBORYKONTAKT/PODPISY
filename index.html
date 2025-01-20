@@ -45,7 +45,8 @@
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group input[type="tel"],
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px;
             border-radius: 6px;
@@ -103,12 +104,11 @@
         a:hover {
             color: #0056b3;
         }
-        /* Nowe klasy dla przestrzeni pomiędzy regulaminem a linkiem */
         .regulations-container {
-            margin-top: 20px;  /* Odstęp między formularzem a regulaminem */
+            margin-top: 20px;
         }
         .link-container {
-            margin-top: 20px;  /* Odstęp między regulaminem a linkiem */
+            margin-top: 20px;
         }
 
         @media (max-width: 600px) {
@@ -126,7 +126,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Formularz zgłoszenia kandydata do Okręgowej Komisji Wyborczej 2025</h1>
+        <h1>Formularz zgłoszenia kandydata do Okręgowej Komisji Wyborczej</h1>
         <form action="https://formsubmit.co/644ffa894c87601a99832c22555bc209" method="POST">
             <input type="hidden" name="_subject" value="WWW">
             <input type="hidden" name="_captcha" value="true">
@@ -146,12 +146,34 @@
                 <small>Numer telefonu musi zawierać 9 cyfr</small>
             </div>
             <div class="form-group">
+                <label for="region">Województwo:</label>
+                <select id="region" name="wojewodztwo" required>
+                    <option value="">-- Wybierz województwo --</option>
+                    <option value="dolnoslaskie">Dolnośląskie</option>
+                    <option value="kujawsko-pomorskie">Kujawsko-Pomorskie</option>
+                    <option value="lubelskie">Lubelskie</option>
+                    <option value="lubuskie">Lubuskie</option>
+                    <option value="lodzkie">Łódzkie</option>
+                    <option value="malopolskie">Małopolskie</option>
+                    <option value="mazowieckie">Mazowieckie</option>
+                    <option value="opolskie">Opolskie</option>
+                    <option value="podkarpackie">Podkarpackie</option>
+                    <option value="podlaskie">Podlaskie</option>
+                    <option value="pomorskie">Pomorskie</option>
+                    <option value="slaskie">Śląskie</option>
+                    <option value="swietokrzyskie">Świętokrzyskie</option>
+                    <option value="warminsko-mazurskie">Warmińsko-Mazurskie</option>
+                    <option value="wielkopolskie">Wielkopolskie</option>
+                    <option value="zachodniopomorskie">Zachodniopomorskie</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="city">Oczekiwane miasto lub gmina przydzielonej okręgowej komisji wyborczej:</label>
                 <input type="text" id="city" name="miasto_lub_gmina" required>
             </div>
             <div class="form-group">
-                <label for="message">Dodatkowa wiadomość:</label>
-                <textarea id="message" name="dodatkowe_informacje" rows="5" required></textarea>
+                <label for="message">wiadomość:</label>
+                <textarea id="message" name="wiadomosc" rows="5" required></textarea>
             </div>
             <div class="form-group">
                 <input type="submit" value="Akceptuję regulamin i wysyłam formularz">
