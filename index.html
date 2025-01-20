@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pracy w komisji</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 70%;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formularz kontaktowy do pracy w komisji wyborczej</h1>
+        <form action="https://formsubmit.co/644ffa894c87601a99832c22555bc209" method="POST">
+            <input type="hidden" name="_subject" value="WWW">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_next" value="https://wyborykontakt.github.io/pracawkomisji/wyslane.html">
+            <div class="form-group">
+                <label for="name">Imię i nazwisko:</label>
+                <input type="text" id="name" name="Imię i nazwisko" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Adres email:</label>
+                <input type="email" id="email" name="Adres email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Numer telefonu:</label>
+                <input type="tel" id="phone" name="Numer telefonu" pattern="[0-9]{9}" placeholder="Tylko 9 cyfr" required>
+                <small>Numer telefonu musi zawierać 9 cyfr</small>
+            </div>
+            <div class="form-group">
+                <label for="city">Miasto lub gmina do pracy w komisji:</label>
+                <input type="text" id="city" name="Miasto lub Gmina" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Dodatkowa wiadomość:</label>
+                <textarea id="message" name="Dodatkowe informacje" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Akceptuję i wysyłam formularz">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
