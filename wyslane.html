@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularz rejestracji</title>
+    <title>Formularz do pracy w komisji został wysłany</title>
     <style>
         * {
             margin: 0;
@@ -17,68 +17,45 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            text-align: center;
+            padding: 20px;
         }
         .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px;
             background-color: #fff;
-            padding: 30px;
+            padding: 40px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
         }
         h1 {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .form-group {
+            font-size: 32px;
+            color: #28a745;
             margin-bottom: 20px;
         }
-        .form-group label {
-            display: block;
-            font-size: 16px;
-            margin-bottom: 5px;
+        .message {
+            font-size: 18px;
             color: #333;
+            margin-bottom: 20px;
         }
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #ddd;
+        a {
             font-size: 16px;
-            margin-top: 8px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
-        .form-group input[type="submit"] {
-            background-color: #28a745;
-            color: white;
-            padding: 12px;
-            font-size: 16px;
-            border: none;
-            border-radius: 6px;
-            width: 100%;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .form-group input[type="submit"]:hover {
-            background-color: #218838;
-        }
-        .form-group small {
-            font-size: 14px;
-            color: #888;
+        a:hover {
+            color: #0056b3;
         }
         @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
             h1 {
-                font-size: 20px;
+                font-size: 24px;
             }
-            .form-group input[type="submit"] {
+            .message {
+                font-size: 16px;
+            }
+            a {
                 font-size: 14px;
             }
         }
@@ -86,37 +63,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Formularz rejestracji do wydarzenia</h1>
-        <form action="https://formsubmit.co/644ffa894c87601a99832c22555bc209" method="POST">
-            <input type="hidden" name="_subject" value="Rejestracja na wydarzenie">
-            <input type="hidden" name="_captcha" value="true">
-            <input type="hidden" name="_template" value="box">
-            <input type="hidden" name="_next" value="https://example.com/wyslane.html">
-            <div class="form-group">
-                <label for="name">Imię i nazwisko:</label>
-                <input type="text" id="name" name="Imię-i-nazwisko" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Adres email:</label>
-                <input type="email" id="email" name="Adres-email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Numer telefonu:</label>
-                <input type="tel" id="phone" name="Numer-telefonu" pattern="[0-9]{9}" placeholder="CYFRY" required>
-                <small>Numer telefonu musi zawierać 9 cyfr</small>
-            </div>
-            <div class="form-group">
-                <label for="city">Miasto lub gmina:</label>
-                <input type="text" id="city" name="Miasto-lub-Gmina" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Dodatkowa wiadomość:</label>
-                <textarea id="message" name="Dodatkowe-informacje" rows="5" required></textarea>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Rejestruję się">
-            </div>
-        </form>
+        <h1>WYSŁANO!</h1>
+        <p class="message">Formularz do pracy w komisji został poprawnie wysłany.</p>
+        <a href="https://formsubmit.co/el/xahoki/?next=https://wyborykontakt.github.io/pracawkomisji/wyslane.html" target="_blank">W przypadku błędu, użyj tego formularza!</a>
     </div>
 </body>
 </html>
