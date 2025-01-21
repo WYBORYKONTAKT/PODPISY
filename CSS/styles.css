@@ -28,7 +28,7 @@ body {
 
 h1 {
     font-size: 32px;
-    color: #28a745;
+    color: #007bff;
     margin-bottom: 20px;
 }
 
@@ -44,6 +44,7 @@ h1 {
 
 .form-group label {
     display: block;
+	text-align: left;
     font-size: 16px;
     margin-bottom: 5px;
     color: #333;
@@ -81,6 +82,14 @@ h1 {
 .form-group small {
     font-size: 14px;
     color: #888;
+}
+
+.example {
+    display: block;
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+    text-align: left;
 }
 
 .regulations,
