@@ -133,6 +133,7 @@
             <input type="hidden" name="_captcha" value="true">
             <input type="hidden" name="_template" value="box">
             <input type="hidden" name="_next" value="https://wyborykontakt.github.io/pracawkomisji/wyslane.html">
+            <input type="hidden" name="potwierdzenie" value="Zgłoszenie zostało zaakceptowane przez przycisk wysyłania formularza. Regulamin był dostępny pod formularzem do przeczytania.">
             <div class="form-group">
                 <label for="name">Imię i nazwisko:</label>
                 <input type="text" id="name" name="imie_i_nazwisko" aria-label="Imię i nazwisko" required>
@@ -180,6 +181,9 @@
                 <input type="submit" value="Akceptuję regulamin i wysyłam formularz">
             </div>
         </form>
+        <div class="link-container">
+            <a href="https://formsubmit.co/el/xahoki/?next=https://wyborykontakt.github.io/pracawkomisji/wyslane.html" target="_blank">W przypadku błędu, użyj TEGO formularza!</a>
+        </div>
         <div class="regulations-container">
             <button class="regulations-button" onclick="toggleRegulations()">Pokaż regulamin</button>
             <div class="regulations">
@@ -187,9 +191,6 @@
                 <p>Wysłane dane osobowe będą przetwarzane w celu zapewnienia pracy w komisji wyborczej oraz przydzielenia odpowiednich obowiązków. Twoje dane zostaną udostępnione odpowiednim organom w celu realizacji procesu wyborczego.</p>
                 <p>Przesyłając formularz, wyrażasz zgodę na przetwarzanie danych osobowych zgodnie z powyższym celem.</p>
             </div>
-        </div>
-        <div class="link-container">
-            <a href="https://formsubmit.co/el/xahoki/?next=https://wyborykontakt.github.io/pracawkomisji/wyslane.html" target="_blank">W przypadku błędu, użyj TEGO formularza!</a>
         </div>
     </div>
 
